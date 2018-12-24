@@ -346,7 +346,7 @@
 
         <ul class="treeview-menu">
           <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> List Users</a></li>
-          <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Add New User</a></li>
+          <li><a href="<?php echo base_url() ?>admin/users/add"><i class="fa fa-circle-o"></i> Add New User</a></li>
         </ul>
       </li>
 

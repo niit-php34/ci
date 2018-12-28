@@ -6,7 +6,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post">
       <div class="box-body">
 
         <div class="form-group">
@@ -22,7 +22,7 @@
           <label for="inputEmail3" class="col-sm-2 control-label">Fullname</label>
 
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Fullname" name="fullname">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Fullname" name="fullname">
           </div>
         </div>
 
@@ -30,7 +30,7 @@
           <label for="inputEmail3" class="col-sm-2 control-label">UserName</label>
 
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="UserName" name="username">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="UserName" name="username">
           </div>
         </div>
 
@@ -38,7 +38,7 @@
           <label for="inputEmail3" class="col-sm-2 control-label">Address</label>
 
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Address" name="address">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Address" name="address">
           </div>
         </div>
 
@@ -46,19 +46,17 @@
           <label for="inputEmail3" class="col-sm-2 control-label">Phone</label>
 
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Phone" name="phone">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Phone" name="phone">
           </div>
         </div>
-
 
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Password</label>
 
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputEmail3" placeholder="Email" name="pwd">
+            <input type="password" class="form-control" id="inputEmail3" placeholder="Password" name="pwd">
           </div>
         </div>
-
 
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Level</label>

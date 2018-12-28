@@ -50,12 +50,15 @@ class users_model extends CI_Model
 
     function insert($data)
     {
+        $data['date_created']=date('Y-m-d H:i:s');
+        $data['date_updated']=date('Y-m-d H:i:s');
         $this->db->insert('users', $data);
         return $this->db->insert_id();
     }
 
     function update($data, $id)
     {
+        $data['date_updated']=date('Y-m-d H:i:s');
         $this->db->update(
             'users',
             $data,

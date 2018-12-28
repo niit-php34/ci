@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-12">
   <!-- Horizontal Form -->
   <div class="box box-info">
     <div class="box-header with-border">
@@ -10,12 +10,13 @@
       <div>
         <?php
         $CI =& get_instance();
-        if ($CI->session->flashdata('code') && $CI->session->flashdata('code')=='1') {
-            echo '<div class="alert alert-success" role="alert">'.$CI->session->flashdata('message').'</div>';
-        } else {
-            echo '<div class="alert alert-danger" role="alert">'.$CI->session->flashdata('message').'</div>';
+        if ($CI->session->flashdata('code')) {
+            if ($CI->session->flashdata('code')=='1') {
+                echo '<div class="alert alert-success" role="alert">'.$CI->session->flashdata('message').'</div>';
+            } else {
+                echo '<div class="alert alert-danger" role="alert">'.$CI->session->flashdata('message').'</div>';
+            }
         }
-
         ?>
 
       </div>

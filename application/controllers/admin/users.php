@@ -4,7 +4,7 @@
    */
 class Users extends MY_Controller
 {
-    
+
     function __construct()
     {
         parent::__construct();
@@ -32,10 +32,18 @@ class Users extends MY_Controller
             'pwd'=>md5($pwd),
             'address'=>$address,
             'phone'=>$phone,
-            'level'=>$level,
+            'level'=>1,
             'activated'=>1
             );
-            $this->users_model->insert($insert_data);
+            $id=$this->users_model->insert($insert_data);
+            if ($id>0) {
+                $this->session->set_flashdata('code', '1');
+                $this->session->set_flashdata('message', 'Adding Successfully !!!!');
+            } else {
+                $this->session->set_flashdata('code', '0');
+                $this->session->set_flashdata('message', 'Adding Failed');
+            }
+            redirect(base_url().'admin/users/add');
         }
         parent::_render_backend_view('backend/users/add', null);
     }

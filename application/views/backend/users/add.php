@@ -7,6 +7,18 @@
     <!-- /.box-header -->
     <!-- form start -->
     <form class="form-horizontal" method="post">
+      <div>
+        <?php
+        $CI =& get_instance();
+        if ($CI->session->flashdata('code') && $CI->session->flashdata('code')=='1') {
+            echo '<div class="alert alert-success" role="alert">'.$CI->session->flashdata('message').'</div>';
+        } else {
+            echo '<div class="alert alert-danger" role="alert">'.$CI->session->flashdata('message').'</div>';
+        }
+
+        ?>
+
+      </div>
       <div class="box-body">
 
         <div class="form-group">
@@ -63,8 +75,8 @@
 
           <div class="col-sm-10">
             <select class="form-control" name="level">
-              <option>Staff</option>
-              <option>Admin</option>
+              <option value="1">Staff</option>
+              <option value="0">Admin</option>
             </select>
           </div>
         </div>

@@ -1,21 +1,21 @@
 <?php
-  /**
-   *
-   */
-class Users extends MY_Controller
+/**
+*
+*/
+class Categories extends MY_Controller
 {
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model('users_model');
+        $this->load->model('categories_model');
     }
 
     public function index()
     {
 
-        $data = $this->users_model->get('*', array(), array(), 0, 10, array('id'=>'DESC'));
-        parent::_render_backend_view('backend/users/index', array('data'=>$data));
+        $data = $this->categories_model->get('*', array(), array(), 0, 10, array('id'=>'DESC'));
+        parent::_render_backend_view('backend/categories/index', array('data'=>$data));
     }
 
     public function add()
@@ -38,7 +38,7 @@ class Users extends MY_Controller
                 'level'=>1,
                 'activated'=>1
             );
-            $id=$this->users_model->insert($insert_data);
+            $id=$this->categories_model->insert($insert_data);
             if ($id>0) {
                 $this->session->set_flashdata('code', '1');
                 $this->session->set_flashdata('message', 'Adding Successfully !!!!');
@@ -46,29 +46,29 @@ class Users extends MY_Controller
                 $this->session->set_flashdata('code', '0');
                 $this->session->set_flashdata('message', 'Adding Failed');
             }
-            redirect(base_url().'admin/users/add');
+            redirect(base_url().'admin/categories/add');
         }
-        parent::_render_backend_view('backend/users/add', null);
+        parent::_render_backend_view('backend/categories/add', null);
     }
 
     public function delete()
     {
         $id=$this->input->get('id');
-        $this->users_model->delete($id);
+        $this->categories_model->delete($id);
     }
 
     public function activate()
     {
-        //echo 'test';
+    //echo 'test';
         $id=$this->input->get('id');
-        $this->users_model->update(array('activated'=>1), $id);
-        redirect(base_url().'admin/users');
+        $this->categories_model->update(array('activated'=>1), $id);
+        redirect(base_url().'admin/categories');
     }
 
     public function deactive()
     {
         $id=$this->input->get('id');
-        $this->users_model->update(array('activated'=>0), $id);
-        redirect(base_url().'admin/users');
+        $this->categories_model->update(array('activated'=>0), $id);
+        redirect(base_url().'admin/categories');
     }
 }

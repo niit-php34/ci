@@ -21,7 +21,7 @@ class Users_model extends CI_Model
             $this->db->like($like);
         }
 
-        $this->db->limit($offset, $limit);
+        $this->db->limit($limit, $offset);
 
         if (count($order)>0) {
             $key = key($order);
@@ -29,7 +29,12 @@ class Users_model extends CI_Model
         }
 
         $query=$this->db->get('users');
-        return $result->result();
+        echo $this->db->last_query();
+        $data = array();
+        foreach ($query->result() as $r) {
+            $data[]=$r;
+        }
+        return $data;
     }
 
     function get_total($where = array(), $like = array())

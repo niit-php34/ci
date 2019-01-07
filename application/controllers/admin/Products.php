@@ -2,20 +2,20 @@
 /**
 *
 */
-class Categories extends MY_Controller
+class Products extends MY_Controller
 {
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model('categories_model');
+        $this->load->model('products_model');
     }
 
     public function index()
     {
 
-        $data = $this->categories_model->get('*', array(), array(), 0, 10, array('id'=>'DESC'));
-        parent::_render_backend_view('backend/categories/index', array('data'=>$data));
+        $data = $this->products_model->get('*', array(), array(), 0, 10, array('id'=>'DESC'));
+        parent::_render_backend_view('backend/products/index', array('data'=>$data));
     }
 
     public function add()
@@ -23,15 +23,35 @@ class Categories extends MY_Controller
         if (isset($_POST['submit'])) {
             $name = $this->input->post('name');
             $description = $this->input->post('description');
-            $parent_id = $this->input->post('parent_id');
+            $categories= $this->input->post('categories');
+            $tag = $this->input->post('tag');
+            $keyword = $this->input->post('keyword');
+            $short_desc = $this->input->post('short_desc');
+            $price = $this->input->post('price');
+            $discount = $this->input->post('discount');
+            $sku=$this->input->post('sku');
 
+            $cat = '';
+            if ($categories!=null) {
+                foreach ($categories as $r) {
+                    $cat.=','.$r;
+                }
+            }
             $insert_data =array(
                 'name'=>$name,
-                'description'=>$description,
-                'parent_id'=>$parent_id
+                'description'=>htmlspecialchars($description),
+                'categories_id'=>$cat,
+                'discount'=>$discount,
+                'price'=>$price,
+                'keyword'=>$keyword,
+                'short_desc'=>$short_desc,
+                'sku'=>$sku,
+                'tag'=>$tag
             );
 
-            $id=$this->categories_model->insert($insert_data);
+            $id=$this->products_model->insert($insert_data);
+            //echo $this->db->last_query();
+            //exit();
             if ($id>0) {
                 if (isset($_FILES['file'])) {
                     $config['upload_path'] = 'uploads/';
@@ -49,7 +69,7 @@ class Categories extends MY_Controller
                         $data = $this->upload->data();
                         //var_dump($data);
                         //exit();
-                        $this->categories_model->update(
+                        $this->products_model->update(
                             array('image'=>'uploads/'.$data['file_name']),
                             $id
                         );
@@ -64,30 +84,30 @@ class Categories extends MY_Controller
                 $this->session->set_flashdata('code', '0');
                 $this->session->set_flashdata('message', 'Adding Failed');
             }
-            redirect(base_url().'admin/categories/add');
+            redirect(base_url().'admin/products/add');
         }
-        parent::_render_backend_view('backend/categories/add', null);
+        parent::_render_backend_view('backend/products/add', null);
     }
 
     public function delete()
     {
         $id=$this->input->get('id');
-        $this->categories_model->delete($id);
-        redirect(base_url().'admin/categories');
+        $this->products_model->delete($id);
+        redirect(base_url().'admin/products');
     }
 
     public function activate()
     {
         //echo 'test';
         $id=$this->input->get('id');
-        $this->categories_model->update(array('activated'=>1), $id);
-        redirect(base_url().'admin/categories');
+        $this->products_model->update(array('activated'=>1), $id);
+        redirect(base_url().'admin/products');
     }
 
     public function deactive()
     {
         $id=$this->input->get('id');
-        $this->categories_model->update(array('activated'=>0), $id);
-        redirect(base_url().'admin/categories');
+        $this->products_model->update(array('activated'=>0), $id);
+        redirect(base_url().'admin/products');
     }
 }

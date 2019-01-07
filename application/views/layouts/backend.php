@@ -358,45 +358,45 @@
           </span>
         </a>
         <ul class="treeview-menu">
-         <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> List Product Categoy</a></li>
-         <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Add New Product Category</a></li>
-         <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> List Products</a></li>
-         <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Add New Product</a></li>
-       </ul>
-     </li>
+          <li><a href="<?php echo base_url() ?>admin/categories"><i class="fa fa-circle-o"></i> List Product Categoy</a></li>
+          <li><a href="<?php echo base_url() ?>admin/categories/add"><i class="fa fa-circle-o"></i> Add New Product Category</a></li>
+          <li><a href="<?php echo base_url() ?>admin/products"><i class="fa fa-circle-o"></i> List Products</a></li>
+          <li><a href="<?php echo base_url() ?>admin/products/add"><i class="fa fa-circle-o"></i> Add New Product</a></li>
+        </ul>
+      </li>
 
-     <li class="treeview">
-      <a href="#">
-        <i class="fa fa-table"></i> <span>Orders</span>
-        <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> List Orders</a></li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-table"></i> <span>Orders</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> List Orders</a></li>
 
-      </ul>
-    </li>
+        </ul>
+      </li>
 
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-table"></i> <span>News</span>
-        <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> List News Category</a></li>
-        <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>Add News Category</a></li>
-        <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> List News</a></li>
-        <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Add News</a></li>
-      </ul>
-    </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-table"></i> <span>News</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> List News Category</a></li>
+          <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i>Add News Category</a></li>
+          <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> List News</a></li>
+          <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Add News</a></li>
+        </ul>
+      </li>
 
-    <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Contacts</span></a></li>
-  </ul>
-</section>
-<!-- /.sidebar -->
+      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Contacts</span></a></li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
 </aside>
 
 <!-- Content Wrapper. Contains page content -->

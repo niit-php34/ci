@@ -2,7 +2,7 @@
 /**
 *
 */
-class Categories_model extends CI_Model
+class Products_model extends CI_Model
 {
 
     function __construct()
@@ -28,7 +28,7 @@ class Categories_model extends CI_Model
             $this->db->order_by($key, $order[$key]);
         }
 
-        $query=$this->db->get('categories');
+        $query=$this->db->get('products');
         //echo $this->db->last_query();
         $data = array();
         foreach ($query->result() as $r) {
@@ -48,7 +48,7 @@ class Categories_model extends CI_Model
             $this->db->like($like);
         }
 
-        $query=$this->db->get('categories');
+        $query=$this->db->get('products');
         $totals = $query->result();
         return $totals[0]->total;
     }
@@ -57,7 +57,7 @@ class Categories_model extends CI_Model
     {
         $data['date_created']=date('Y-m-d H:i:s');
         $data['date_updated']=date('Y-m-d H:i:s');
-        $this->db->insert('categories', $data);
+        $this->db->insert('products', $data);
         return $this->db->insert_id();
     }
 
@@ -65,7 +65,7 @@ class Categories_model extends CI_Model
     {
         $data['date_updated']=date('Y-m-d H:i:s');
         $this->db->update(
-            'categories',
+            'products',
             $data,
             array('id'=>$id)
         );
@@ -74,6 +74,6 @@ class Categories_model extends CI_Model
 
     function delete($id)
     {
-        $this->db->delete('categories', array('id'=>$id));
+        $this->db->delete('products', array('id'=>$id));
     }
 }

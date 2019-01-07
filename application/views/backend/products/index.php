@@ -4,7 +4,8 @@
     <th>Name</th>
     <th>Image</th>
     <th>Description</th>
-    <th>Parent Category</th>
+    <th>Price</th>
+    <th>Discount</th>
     <th>Status</th>
     <th>Action</th>
   </tr>
@@ -20,7 +21,9 @@
           <img src="<?php echo $r->image!=null?base_url().$r->image:'https://via.placeholder.com/150'; ?>"/>
         </td>
         <td><?php echo $r->description; ?></td>
-        <td><?php echo $r->parent_id; ?></td>
+        <td><?php echo $r->price; ?></td>
+        <td><?php echo $r->discount; ?></td>
+        
         <td>
           <?php if($r->activated == 1){
             echo 'Activated';

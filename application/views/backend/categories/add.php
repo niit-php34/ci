@@ -6,7 +6,7 @@
     </div>
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal" method="post">
+    <form class="form-horizontal" method="post" enctype="multipart/form-data">
       <div>
         <?php
         $CI =& get_instance();
@@ -18,29 +18,41 @@
             }
         }
         ?>
-
       </div>
       <div class="box-body">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Images</label>
+          <div class="col-sm-10">
+            <input type="file" class="form-control" name="file">
+          </div>
+        </div>
 
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
 
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputEmail3" placeholder="Fullname" name="fullname">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Name" name="name">
           </div>
         </div>
 
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
+
+          <div class="col-sm-10">
+            <textarea type="text" class="form-control" id="inputEmail3" placeholder="Description" name="description">
+            </textarea>
+          </div>
+        </div>
 
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Parent Category</label>
-          
             <?php
             $CI =& get_instance();
             $this->load->model('categories_model');
             $cat=$CI->categories_model->get('*', array(), array(), 0, 100, array('id'=>'DESC'));
             ?>
           <div class="col-sm-10">
-            <select class="form-control" name="level">
+            <select class="form-control" name="parent_id">
               <option value="0">No Category</option>
                 <?php
                 foreach ($cat as $r) {

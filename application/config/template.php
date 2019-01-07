@@ -1,16 +1,18 @@
-<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 /*
 |--------------------------------------------------------------------------
 | Active template
 |--------------------------------------------------------------------------
 |
-| The $template['active_template'] setting lets you choose which template 
-| group to make active.  By default there is only one group (the 
+| The $template['active_template'] setting lets you choose which template
+| group to make active.  By default there is only one group (the
 | "default" group).
 |
 */
-$template['active_template'] = 'backend';
-$template['active_group'] = 'backend';
+$template['active_template'] = 'default';
+$template['active_group'] = 'default';
 /*
 |--------------------------------------------------------------------------
 | Explaination of template group variables
@@ -20,9 +22,9 @@ $template['active_group'] = 'backend';
 |   Typically this file will contain a full XHTML skeleton that outputs your
 |   full template or region per region. Include the file extension if other
 |   than ".php"
-| ['regions'] Places within the template where your content may land. 
-|   You may also include default markup, wrappers and attributes here 
-|   (though not recommended). Region keys must be translatable into variables 
+| ['regions'] Places within the template where your content may land.
+|   You may also include default markup, wrappers and attributes here
+|   (though not recommended). Region keys must be translatable into variables
 |   (no spaces or dashes, etc)
 | ['parser'] The parser class/library to use for the parse_view() method
 |   NOTE: See http://codeigniter.com/forums/viewthread/60050/P0/ for a good
@@ -33,9 +35,9 @@ $template['active_group'] = 'backend';
 | Region information can be extended by setting the following variables:
 | ['content'] Must be an array! Use to set default region content
 | ['name'] A string to identify the region beyond what it is defined by its key.
-| ['wrapper'] An HTML element to wrap the region contents in. (We 
+| ['wrapper'] An HTML element to wrap the region contents in. (We
 |   recommend doing this in your template file.)
-| ['attributes'] Multidimensional array defining HTML attributes of the 
+| ['attributes'] Multidimensional array defining HTML attributes of the
 |   wrapper. (We recommend doing this in your template file.)
 |
 | Example:
@@ -56,18 +58,15 @@ $template['active_group'] = 'backend';
 |--------------------------------------------------------------------------
 */
 
-// $template['frontend']['template'] = '/templates/frontend';
-// $template['frontend']['regions'] = array(
-// 	'header',
-// 	'content',
-// 	'footer',
-// 	'sidebar'
-// 	);
+$template['default']['template'] = '/layouts/default';
+$template['default']['regions'] = array(
+    'content'
+);
 
 $template['backend']['template'] = '/layouts/backend';
 $template['backend']['regions'] = array(
-	'content'
-	);
+    'content'
+);
 
 
 /*$template['frontend']['parser'] = 'parser';

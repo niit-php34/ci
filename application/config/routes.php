@@ -38,7 +38,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | This route will tell the Router which controller/method to use if those
 | provided in the URL cannot be matched to a valid route.
 |
-|   $route['translate_uri_dashes'] = FALSE;
+| $route['translate_uri_dashes'] = FALSE;
 |
 | This is not exactly a route, but allows you to automatically route
 | controller and method names that contain dashes. '-' isn't a valid
@@ -51,6 +51,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Home';
 //$route['admin/users/add']='admin/users/add';
+$route['admin']='admin/Dashboard';
+$route['nguoidung/dang-nhap']='users/login';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;

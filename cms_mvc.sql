@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2019 at 12:45 PM
+-- Generation Time: Jan 11, 2019 at 02:31 PM
 -- Server version: 5.7.12
 -- PHP Version: 7.2.2
 
@@ -44,7 +44,13 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `image`, `description`, `parent_id`, `activated`, `date_created`, `date_updated`) VALUES
-(1, 'Sách', '', 'Sách', 0, 1, '2018-12-26 00:00:00', '2018-12-27 00:00:00');
+(1, 'Sách', '', 'Sách', 0, 1, '2018-12-26 00:00:00', '2018-12-27 00:00:00'),
+(2, 'Test', '', 'Test            ', 0, 0, '2019-01-07 13:15:15', '2019-01-07 13:15:15'),
+(3, 'Test ', '', 'Test            ', 0, 0, '2019-01-07 13:22:06', '2019-01-07 13:22:06'),
+(4, 'test', '', '       kjhjkh     ', 0, 0, '2019-01-07 13:26:03', '2019-01-07 13:26:03'),
+(5, 'hhjk', '', '         hjk   ', 0, 0, '2019-01-07 13:26:26', '2019-01-07 13:26:26'),
+(6, 'hkj', '', '    hkjhk        ', 0, 0, '2019-01-07 13:26:37', '2019-01-07 13:26:37'),
+(7, 'fgf', '', '         gfg   ', 0, 0, '2019-01-07 13:27:02', '2019-01-07 13:27:02');
 
 -- --------------------------------------------------------
 
@@ -156,11 +162,22 @@ CREATE TABLE `products` (
   `tag` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `keyword` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `discount` float NOT NULL,
-  `image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `short_desc` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `date_created` datetime NOT NULL,
-  `date_update` datetime NOT NULL
+  `date_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `sku`, `name`, `description`, `status`, `categories_id`, `price`, `activated`, `tag`, `keyword`, `discount`, `image`, `short_desc`, `date_created`, `date_updated`) VALUES
+(1, 'ghj', 'jhghj', '            678687', 0, ',6,5', 76, 0, '678', '8768', 76, NULL, '6786', '2019-01-07 14:01:05', '2019-01-07 14:01:05'),
+(2, '67868', 'yt687687', '        687687    ', 0, ',6,5', 678, 0, '678', '687', 678, NULL, '678687', '2019-01-07 14:01:20', '2019-01-07 14:01:20'),
+(3, '67868', 'yt687687', ' 687687 ', 0, ',6,5', 678, 0, '678', '687', 678, NULL, '678687', '2019-01-07 14:01:20', '2019-01-07 14:01:20'),
+(4, '203', 'Test lại', '            JKLSDJFKSDLFJSKLDFJLK', 0, ',4,3', 20, 0, 'HI', 'HI', 20, 'uploads/icon7.png', 'HI', '2019-01-07 14:02:18', '2019-01-07 14:02:18'),
+(5, 'Lemon', 'Lemon', 'Hi hi            ', 0, ',7,6', 20, 0, 'jkhkjh,hjkhk,jkh', 'jkh', 79, 'uploads/80x80.png', 'hkjhkjhkjhkjhjk', '2019-01-07 14:36:46', '2019-01-07 14:36:46');
 
 -- --------------------------------------------------------
 
@@ -209,7 +226,25 @@ INSERT INTO `users` (`id`, `user_name`, `full_name`, `address`, `phone`, `email`
 (4, 'sjkdfhskjf', 'jkshkjdhfk', 'jksdhfjksfh', 'sjkdhfskjf', 'jkshdfk@sdf.com', 1, '35cf8493e2e43d6fab15bb0b80f0fa9a', 1, '2018-12-28 13:52:43', '2018-12-28 14:50:39', NULL),
 (5, 'sjkdhfk', 'ạksdhfk', 'sjdfkhk', 'sdjfkhsdk', 'jkshdfk@Ad.com', 1, '8fbbe1863aaae382387726fcdbc89db3', 1, '2018-12-28 13:53:44', '2018-12-28 14:50:39', NULL),
 (6, 'ạkdhak', 'ạkdha@Adj', 'ạkshdjkadh', 'jksdhfsjdk', 'luann4@g.com', 1, '2df2ded51cb33bb44453a7af0b4f0160', 1, '2018-12-28 13:57:35', '2018-12-28 14:50:38', NULL),
-(7, 'sjdkfhk', 'sjkfh', 'sjdkfh', 'sdjkfhk', 'kuah@d.com', 1, '497fd05bbe794349ffe2f1db4a406d99', 1, '2018-12-28 14:12:43', '2018-12-28 14:50:37', NULL);
+(7, 'sjdkfhk', 'sjkfh', 'sjdkfh', 'sdjkfhk', 'kuah@d.com', 1, '497fd05bbe794349ffe2f1db4a406d99', 1, '2018-12-28 14:12:43', '2018-12-28 14:50:37', NULL),
+(8, '123456', 'Nguyen Thanh Luan', 'Ha Long', '0868120192', 'luann4099@gmail.com', 2, '77e2edcc9b40441200e31dc57dbb8829', 1, '2019-01-11 13:56:56', '2019-01-11 13:56:56', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `verified_account`
+--
+
+CREATE TABLE `verified_account` (
+  `id` int(11) NOT NULL,
+  `user_name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `full_name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `pwd` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -270,6 +305,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `verified_account`
+--
+ALTER TABLE `verified_account`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -277,7 +318,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -307,7 +348,7 @@ ALTER TABLE `post_categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -319,7 +360,13 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `verified_account`
+--
+ALTER TABLE `verified_account`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

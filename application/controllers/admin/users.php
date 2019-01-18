@@ -13,9 +13,16 @@ class Users extends MY_Controller
 
     public function index()
     {
-
-        $data = $this->users_model->get('*', array(), array(), 0, 10, array('id'=>'DESC'));
-        parent::_render_backend_view('backend/users/index', array('data'=>$data));
+        $base_url=base_url().'admin/users';
+        $page=$this->uri->segment(3);
+		if(!is_numeric($page) || $page<=0){
+			$page=1;
+		}
+		$first=($page-1)*$this->pg_per_page;
+        $total_rows=$this->users_model->get_total(array(),array());
+        $data = $this->users_model->get('*', array(), array(), $first, $this->pg_per_page, array('id'=>'DESC'));
+        $page_link = parent::pagination_config($base_url,$total_rows,$this->pg_per_page);
+        parent::_render_backend_view('backend/users/index', array('data'=>$data,'page_link'=>$page_link));
     }
 
     public function add()

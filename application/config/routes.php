@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |       my-controller/my-method -> my_controller/my_method
 */
 $route['default_controller'] = 'Home';
-//$route['admin/users/add']='admin/users/add';
+$route['admin/users/(:num)']='admin/users/index/$1';
 $route['admin']='admin/Dashboard';
 $route['nguoidung/dang-nhap']='users/login';
 
